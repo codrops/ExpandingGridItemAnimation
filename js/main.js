@@ -69,6 +69,9 @@
             };
         }
         open(data) {
+            if ( this.isAnimating ) return false;
+            this.isAnimating = true;
+
             this.DOM.details.classList.add('details--open');
             
             this.DOM.productBg = data.productBg;
@@ -93,7 +96,8 @@
                 translateX: 0,
                 translateY: 0,
                 scaleX: 1,
-                scaleY: 1
+                scaleY: 1,
+                complete: () => this.isAnimating = false
             });
 
             anime({
@@ -135,6 +139,9 @@
             });
         }
         close() {
+            if ( this.isAnimating ) return false;
+            this.isAnimating = true;
+
             this.DOM.details.classList.remove('details--open');
 
             anime({
@@ -190,6 +197,7 @@
                     this.DOM.img.style.transform = 'none';
                     this.DOM.productBg.style.opacity = 1;
                     this.DOM.productImg.style.opacity = 1;
+                    this.isAnimating = false;
                 }
             });
         }
