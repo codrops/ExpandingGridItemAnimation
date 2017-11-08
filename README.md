@@ -8,6 +8,8 @@ A product item animation where the background of a grid item expands and the pro
 
 [Demo](http://tympanus.net/Development/ExpandingGridItemAnimation/)
 
+This demo is kindly sponsored by [Storyblocks](http://synd.co/2yatEfN).
+
 ## Credits
 
 - [anime.js](http://anime-js.com/) by Julian Garnier
