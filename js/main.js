@@ -247,6 +247,8 @@
             });
         }
         zoomOut() {
+	    if ( this.isAnimating ) return false;
+            this.isAnimating = true;
             this.isZoomed = false;
 
             anime({
@@ -267,7 +269,10 @@
                 scaleX: 1,
                 scaleY: 1,
                 rotate: 0,
-                complete: () => this.DOM.img.style.transformOrigin = '0 0'
+                complete: () => {
+                    this.DOM.img.style.transformOrigin = '0 0';
+                    this.isAnimating = false;
+                }
             });
 
             anime({
